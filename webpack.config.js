@@ -10,6 +10,9 @@ module.exports = {
             }
         ]
     },
+    resolve: {
+        extensions: ["*", ".js", ".jsx"]
+    },
     output: {
         path: __dirname + "/dist",
         filename: "bundle.js"
