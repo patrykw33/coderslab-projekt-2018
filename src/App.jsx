@@ -1,11 +1,14 @@
 import React from "react";
 import ExchangeRatesMatrix from "./ExchangeRatesMatrix";
+import CurrenciesCheckboxes from "./CurrenciesCheckboxes";
+import Name from "./Name"
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: null
+            data: null,
+            currencies: ["USD", "PLN", "GBP", "EUR"]
         }
     }
 
@@ -22,7 +25,18 @@ class App extends React.Component {
     render() {
         return (
             <React.Fragment>
-                { this.state.data && <ExchangeRatesMatrix currencies={ ["USD", "PLN", "GBP"] } data={ this.state.data } /> }
+                <div>
+                    <Name/>
+                </div>
+                <div className="currenciesSelection" >
+                    {  this.state.data && <CurrenciesCheckboxes selected={ this.state.currencies } currencies={ Object.keys(this.state.data.rates) } onChange={ selected => {
+                        this.setState({ currencies: selected.slice(-5)});
+                    } }/>}
+                </div>
+                <div>
+                { this.state.data && <ExchangeRatesMatrix currencies={ this.state.currencies } data={ this.state.data } /> }
+                </div>
+
             </React.Fragment>
         )
     }

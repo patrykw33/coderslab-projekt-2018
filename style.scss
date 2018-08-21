@@ -1,0 +1,58 @@
+
+
+.pierwsza {
+  display: block;
+  color:blue;
+  background: whitesmoke;
+}
+
+.name {
+  font-family: "DejaVu Serif";
+  background: whitesmoke;
+  display: block;
+  margin: 0 auto;
+  font-size: 40px;
+  position: relative;
+  .head{
+    color: cornflowerblue;
+    margin: 0 auto;
+    border: 5px solid cornflowerblue;
+    border-radius: 2%;
+    display: table;
+    font-size: 30px;
+  }
+}
+
+.tableToMake {
+  font-family: "DejaVu Serif";
+  margin: 0 auto;
+  border: 5px solid cornflowerblue;
+  border-radius: 2%;
+  display: table;
+  font-size: 40px;
+  padding-bottom: 10px;
+}
+
+tr {
+  td {
+   padding: 15px;
+  }
+}
+
+.currencyTypes, .columnCurrencies{
+  color: red;
+}
+
+td:hover {
+  color: darken(red, 10);
+  transform: scale(1.1);
+}
+
+.currenciesSelection {
+  margin: 0 auto;
+  height: 150px;
+  width: 100%;
+  display: flex;
+  vertical-align: center;
+  justify-content: center;
+}

@@ -8,28 +8,33 @@ import ExchangeRate from "./ExchangeRate";
 //     return parseFloat(destRate, 10) / parseFloat(baseRate, 10);
 // }
 
-const ExchangeRatesRow = ({ from, currencies, data }) => {
+
+
+const ExchangeRatesRow = ({from, currencies, data}) => {
+    console.log({from, currencies, data});
     return (
-        <tr>
-            <td>{ from }</td>
-            { currencies.map(currency => <td key={currency + "_exchange_rate"} >
+        <tbody>
+            <tr>
+                <td className="columnCurrencies">{from}</td>
+                {currencies.map(currency => <td key={currency + "_exchange_rate"}>
 
-                Kurs wymiany z { from } na { currency }
+                   {(data.rates[currency] / data.rates[from]).toFixed(2)}
 
-            </td>) }
-        </tr>
+                </td>)}
+            </tr>
+        </tbody>
     );
 };
 
-const ExchangeRatesMatrix = ({ data, currencies }) => <div>
-    <table>
-        <th>
-            <td>Currency:</td>{ currencies.map(currency => <td key={ currency + "_header" }>{ currency }</td>) }
-        </th>
+const ExchangeRatesMatrix = ({data, currencies}) => <div className="pierwsza">
+    <table className="tableToMake">
+        <tr>
+            <td className="currencyTypes">Currency:</td>
+            {currencies.map(currency => <td key={currency + "_header"}>{currency}</td>)}
+        </tr>
 
-        { currencies.map(from => <ExchangeRatesRow from={from} currencies={ currencies } data={data} key={ from + "_row" }/>) }
-
-
+        {currencies.map(from => <ExchangeRatesRow from={from} currencies={currencies} data={data}
+                                                  key={from + "_row"}/>)}
     </table>
 </div>;
 
