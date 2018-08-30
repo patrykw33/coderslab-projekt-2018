@@ -15,7 +15,7 @@ const ExchangeRatesRow = ({from, currencies, data}) => {
     return (
         <tbody>
             <tr>
-                <td className="columnCurrencies">{from}</td>
+                <th>{from}</th>
                 {currencies.map(currency => <td key={currency + "_exchange_rate"}>
 
                    {(data.rates[currency] / data.rates[from]).toFixed(2)}
@@ -26,11 +26,11 @@ const ExchangeRatesRow = ({from, currencies, data}) => {
     );
 };
 
-const ExchangeRatesMatrix = ({data, currencies}) => <div className="pierwsza">
+const ExchangeRatesMatrix = ({data, currencies}) => <div className="table">
     <table className="tableToMake">
         <tr>
-            <td className="currencyTypes">Currency:</td>
-            {currencies.map(currency => <td key={currency + "_header"}>{currency}</td>)}
+            <th className="currencyTypes">Currency:</th>
+            {currencies.map(currency => <th key={currency + "_header"}>{currency}</th>)}
         </tr>
 
         {currencies.map(from => <ExchangeRatesRow from={from} currencies={currencies} data={data}

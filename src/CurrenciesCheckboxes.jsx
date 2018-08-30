@@ -2,7 +2,7 @@ import React from "react";
 
 const CurrenciesCheckboxes = ({ currencies, selected, onChange }) => {
     return (
-        <div >
+        <div className="currenciesSelection">
             { currencies.map(currency => {
                 return (
                     <span key={ currency + "_checkbox"}>
@@ -17,7 +17,7 @@ const CurrenciesCheckboxes = ({ currencies, selected, onChange }) => {
                                 }
                             } }
                         />
-                            <label> { currency } </label>
+                            <label className="onHover"> { currency } </label>
                     </span>
                 );
             })}
