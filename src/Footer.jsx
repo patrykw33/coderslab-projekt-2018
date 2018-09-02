@@ -4,7 +4,7 @@ import { SocialIcon } from 'react-social-icons';
 
 const Footer = () => {
     return (
-        <div className="footer hidden">
+        <div className="footer">
             <div className="socialBtn fb">
                 <SocialIcon url="https://www.facebook.com/patryk.watras.9/" />
             </div>

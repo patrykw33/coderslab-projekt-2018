@@ -15,7 +15,9 @@ class Header extends React.Component {
     render() {
         return (
             <div className='date'>
+                <span>
                 Today is: {this.state.date}
+                </span>
             </div>
         );
     }

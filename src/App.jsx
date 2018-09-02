@@ -10,15 +10,33 @@ class App extends React.Component {
         super(props);
         this.state = {
             data: null,
-            currencies: ["USD", "PLN", "GBP", "EUR"]
+            currencies: ["USD", "PLN", "GBP", "EUR"],
+            currenciesFilter: "",
+            sectionWithTableHidden: true|false,
+            sectionWithSelectionHidden: true|false,
+            headerHidden: true|false,
+            selectCurrency: false,
+            footerHidden: true|false,
         }
     }
 
     handleClick () {
-        const element = this.refs.element;
-        console.log(element);
-        element.classList.remove('hidden');
+        this.setState(state => {
+            return {
+                sectionWithTableHidden: ! state.sectionWithTableHidden,
+                sectionWithSelectionHidden: ! state.sectionWithSelectionHidden,
+                headerHidden: ! state.headerHidden,
+                selectCurrency: !state.selectCurrency,
+                footerHidden: !state.footerHidden,
+
+            }
+
+        })
     };
+
+    handleChange (event) {
+        this.setState({ currenciesFilter: event.target.value.toUpperCase() })
+    }
 
     componentDidMount() {
         this.loadData();
@@ -33,22 +51,29 @@ class App extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className="container">
-                    <div className="header hidden">
+                <div className={ `container ${!this.state.sectionWithSelectionHidden && "noBgImg"}`}>
+                    <div className={ `headerHidden ${this.state.headerHidden && "hidden"}` }>
                         <Header/>
                     </div>
-                    <div ref="element" className="sectionWithTable hidden">
+                    <div ref="element" className={ `sectionWithTable ${this.state.sectionWithTableHidden && "hidden"}` }>
                         { this.state.data && <ExchangeRatesMatrix currencies={ this.state.currencies } data={ this.state.data } /> }
                     </div>
-                    <div className="selectCurrency">
-                        <Name/>
+                    <div className={ `selectCurrency ${this.state.selectCurrency && "hidden" && "selectCurrencyNoDisplay"}` }>
+                        <Name onClick={(e) => this.handleClick(e)} />
                     </div>
-                    <div ref="element" className="sectionWithSelection hidden">
-                        {  this.state.data && <CurrenciesCheckboxes selected={ this.state.currencies } currencies={ Object.keys(this.state.data.rates) } onChange={ selected => {
+                    <div ref="element" className={ `sectionWithSelection ${this.state.sectionWithSelectionHidden && "hidden"}`}>
+                        {  this.state.data && <input type="text" value={this.state.currenciesFilter} placeholder="Enter or Select currency" onChange={this.handleChange.bind(this)}  /> }
+                        <div className="listOf">
+                            List of World Currencies
+                        </div>
+                        {  this.state.data && <CurrenciesCheckboxes selected={ this.state.currencies }
+                                                                    currencies={ Object.keys(this.state.data.rates).filter(currency => currency.startsWith(this.state.currenciesFilter)) }
+                                                                    highlightedText={this.state.currenciesFilter}
+                                                                    onChange={ selected => {
                             this.setState({ currencies: selected.slice(-5)});
                         } }/>}
                     </div>
-                    <div>
+                    <div ref="element" className={ `footerHidden ${this.state.footerHidden && "hidden"}` }>
                         <Footer/>
                     </div>
                 </div>
