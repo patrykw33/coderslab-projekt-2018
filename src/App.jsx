@@ -4,6 +4,7 @@ import CurrenciesCheckboxes from "./CurrenciesCheckboxes";
 import Name from "./Name";
 import Header from "./Header";
 import Footer from "./Footer";
+import fixerUrl from "./fixer.io.mock";
 
 class App extends React.Component {
     constructor(props) {
@@ -43,7 +44,7 @@ class App extends React.Component {
     }
 
     loadData() {
-        fetch(`//data.fixer.io/api/latest?access_key=f0d74f368a330a68a76b4f61a07ee799`)
+        fetch(`./${fixerUrl}`)
             .then(response => response.json())
             .then(crRate => this.setState({data: crRate}));
     }
