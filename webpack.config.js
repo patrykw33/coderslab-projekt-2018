@@ -42,7 +42,6 @@ module.exports = {
     },
     output: {
         path: __dirname + "/docs",
-        contentBase: "./docs",
         filename: "bundle.js"
     }
 }
