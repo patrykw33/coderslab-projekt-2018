@@ -53,8 +53,8 @@ table {
 
 @font-face {
   font-family: 'comfortaaregular';
-  src: url('/fonts/comfortaa-regular-webfont.woff2') format('woff2'),
-  url('/fonts/comfortaa-regular-webfont.woff') format('woff');
+  src: url('./fonts/comfortaa-regular-webfont.woff2') format('woff2'),
+  url('./fonts/comfortaa-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   color: #2f4366;
@@ -225,9 +225,7 @@ th {
 //Desktop
 //Desktop
 @media only screen and (min-width: 801px){
-  body{
-    background-image: linear-gradient(to bottom, #a7cfdf 0%, #23538a 100%);
-  }
+
   .container{
     font-family: comfortaaregular;
     margin: 0 auto;
@@ -235,7 +233,7 @@ th {
     flex-direction: column;
     justify-content: center;
     width: 70%;
-    background: url("/images/world-map-blue.png");
+    background: url("./images/world-map-blue.png");
     background-position: 50% 40%;
     background-repeat: no-repeat;
     background-size: contain;
