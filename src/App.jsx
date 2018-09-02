@@ -51,7 +51,8 @@ class App extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className={ `container ${!this.state.sectionWithSelectionHidden && "noBgImg"}`}>
+                <div className={`mainContainer ${!this.state.sectionWithSelectionHidden && "noBgImg"}`}>
+                <div className={ `container ${!this.state.sectionWithSelectionHidden && "noBgImg2"}`}>
                     <div className={ `headerHidden ${this.state.headerHidden && "hidden"}` }>
                         <Header/>
                     </div>
@@ -76,6 +77,7 @@ class App extends React.Component {
                     <div ref="element" className={ `footerHidden ${this.state.footerHidden && "hidden"}` }>
                         <Footer/>
                     </div>
+                </div>
                 </div>
 
             </React.Fragment>

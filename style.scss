@@ -225,7 +225,13 @@ th {
 //Desktop
 //Desktop
 @media only screen and (min-width: 801px){
-
+  .mainContainer {
+    background: rgba(245,245,245,0.6);
+    &.noBgImg {
+      background: none;
+      background: linear-gradient(to bottom, #928DAB, #00d2ff);
+    }
+  }
   .container{
     font-family: comfortaaregular;
     margin: 0 auto;
@@ -239,8 +245,9 @@ th {
     background-size: contain;
 
 
-    &.noBgImg {
-      background: none;
+    &.noBgImg2 {
+      background: whitesmoke;
+
     }
 
     .headerHidden, .sectionWithSelection, .selectCurrency, .sectionWithTable, .footer {
@@ -322,7 +329,9 @@ th {
     color: #334751;
     margin-bottom: 10px;
     font-size: 14px;
-
+    span {
+      padding-left: 10px;
+    }
   }
 
 
@@ -331,6 +340,7 @@ th {
     height: auto;
     background: rgba(245,245,245,0.6);
     font-size: 10px;
+    font-weight: bold;
     color: #334751;
     margin: 0 auto;
     margin-bottom: 10px;
@@ -369,6 +379,7 @@ th {
   }
   .currencyTypes {
     font-size: 18px;
+    font-weight: bold;
     background-image: -webkit-linear-gradient(top, #FD6F46, #FB9832);
     background-image: -moz-linear-gradient(top, #FD6F46, #FB9832);
     background-image: -ms-linear-gradient(top, #FD6F46, #FB9832);
