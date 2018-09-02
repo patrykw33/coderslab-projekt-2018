@@ -43,7 +43,7 @@ class App extends React.Component {
     }
 
     loadData() {
-        fetch(`http://data.fixer.io/api/latest?access_key=f0d74f368a330a68a76b4f61a07ee799`)
+        fetch(`//data.fixer.io/api/latest?access_key=f0d74f368a330a68a76b4f61a07ee799`)
             .then(response => response.json())
             .then(crRate => this.setState({data: crRate}));
     }
