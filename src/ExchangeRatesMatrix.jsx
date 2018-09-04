@@ -18,7 +18,7 @@ const ExchangeRatesRow = ({from, currencies, data}) => {
                 <th>{from}</th>
                 {currencies.map(currency => <td key={currency + "_exchange_rate"}>
 
-                   {(data.rates[currency] / data.rates[from]).toFixed(2)}
+                   {(data.rates[currency] / data.rates[from]).toFixed(4)}
 
                 </td>)}
             </tr>
