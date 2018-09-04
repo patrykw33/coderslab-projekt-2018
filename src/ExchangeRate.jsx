@@ -30,7 +30,7 @@ class ExchangeRate extends React.Component {
     }
 
     renderData() {
-        return <div> 100 PLN = { (100 * this.convert("PLN")).toFixed(2) } {this.props.currency}</div>
+        return <div> 100 PLN = { (100 * this.convert("PLN")).toFixed(4) } {this.props.currency}</div>
     }
 
 
