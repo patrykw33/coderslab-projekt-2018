@@ -1,4 +1,7 @@
 import React from "react";
+import MapCurrencyToCountry from "./MapCurrencyToCountry";
+
+
 
 function spitStringInTwo(string, match) {
     var sLength = string.length;
@@ -10,7 +13,8 @@ function spitStringInTwo(string, match) {
 }
 
 
-const CurrenciesCheckboxes = ({ currencies, selected, onChange, highlightedText }) => {
+
+const CurrenciesCheckboxes = ({ currencies, selected, onChange, onMouseEnter, highlightedText }) => {
     return (
         <div className="currenciesSelection">
 
@@ -22,7 +26,10 @@ const CurrenciesCheckboxes = ({ currencies, selected, onChange, highlightedText 
 
                 return (
 
-                    <span key={ currency + "_checkbox"}>
+                    <span key={ currency + "_checkbox"}
+                          onMouseEnter={ event => {
+                              console.log("Tutaj pewnie będzie coś")
+                          }}>
                         <input
                             type="checkbox"
                             checked={ selected.indexOf(currency) !== -1 }
@@ -33,6 +40,7 @@ const CurrenciesCheckboxes = ({ currencies, selected, onChange, highlightedText 
                                     onChange(selected.filter(selectedCurrency => selectedCurrency !== currency))
                                 }
                             } }
+
                         />
                             <label
                                 onClick={ event => {
@@ -41,8 +49,12 @@ const CurrenciesCheckboxes = ({ currencies, selected, onChange, highlightedText 
                                     } else {
                                         onChange(selected.filter(selectedCurrency => selectedCurrency !== currency))
                                     }
-                                } }>
-                                <span style={{ fontWeight: "bold", color: "#334751", fontSize:"16px", letterSpacing: "2px" }}>{ partMatchingHighlightedText }</span>{ restOfTheText }</label>
+                                } }
+
+                                >
+                                <span style={{ fontWeight: "bold", color: "#334751", fontSize:"16px", letterSpacing: "2px" }}
+                                >{ partMatchingHighlightedText }</span>{ restOfTheText }</label>
+
                     </span>
                 );
             })}
