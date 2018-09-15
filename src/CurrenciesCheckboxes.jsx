@@ -1,8 +1,6 @@
 import React from "react";
 import MapCurrencyToCountry from "./MapCurrencyToCountry";
 
-
-
 function spitStringInTwo(string, match) {
     var sLength = string.length;
     var mLength = match.length;
@@ -29,7 +27,9 @@ const CurrenciesCheckboxes = ({ currencies, selected, onChange, onMouseEnter, hi
                     <span key={ currency + "_checkbox"}
                           onMouseEnter={ event => {
                               console.log("Tutaj pewnie będzie coś")
-                          }}>
+                          }}
+                          title={ MapCurrencyToCountry[currency] }
+                    >
                         <input
                             type="checkbox"
                             checked={ selected.indexOf(currency) !== -1 }
