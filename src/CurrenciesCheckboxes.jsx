@@ -22,14 +22,12 @@ const CurrenciesCheckboxes = ({ currencies, selected, onChange, onMouseEnter, hi
 
                 const [ partMatchingHighlightedText, restOfTheText ] = spitStringInTwo(currency, highlightedText);
 
-                console.log({ partMatchingHighlightedText, restOfTheText })
+                console.log({ partMatchingHighlightedText, restOfTheText });
 
                 return (
 
                     <span key={ currency + "_checkbox"}
-                          onMouseEnter={ event => {
-                              console.log("Tutaj pewnie będzie coś")
-                          }}>
+                          title={ MapCurrencyToCountry[currency] }>
                         <input
                             type="checkbox"
                             checked={ selected.indexOf(currency) !== -1 }
@@ -40,7 +38,6 @@ const CurrenciesCheckboxes = ({ currencies, selected, onChange, onMouseEnter, hi
                                     onChange(selected.filter(selectedCurrency => selectedCurrency !== currency))
                                 }
                             } }
-
                         />
                             <label
                                 onClick={ event => {
@@ -50,10 +47,11 @@ const CurrenciesCheckboxes = ({ currencies, selected, onChange, onMouseEnter, hi
                                         onChange(selected.filter(selectedCurrency => selectedCurrency !== currency))
                                     }
                                 } }
-
                                 >
+
                                 <span style={{ fontWeight: "bold", color: "#334751", fontSize:"16px", letterSpacing: "2px" }}
-                                >{ partMatchingHighlightedText }</span>{ restOfTheText }</label>
+                                >{ partMatchingHighlightedText }</span>{ restOfTheText }
+                                </label>
 
                     </span>
                 );

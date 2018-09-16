@@ -294,7 +294,7 @@ th {
     .sectionWithTable {
       height: 44vh;
       padding-top: 15px;
-      margin-bottom: 10px;
+      margin: 0 auto 10px auto;
       border-top: 3px solid #D3D3D3;
       box-sizing: content-box;
       .table {
@@ -411,8 +411,16 @@ tbody:hover{
     }
   }
 
-//Footer
+.mapCurrencyOnHover {
+  height: 20px;
+  width: 20px;
+  position: relative;
+  z-index: 2;
+}
 
+
+
+//Footer
 .footerHidden{
   background: rgba(210, 210, 210, 0.6);
 }
