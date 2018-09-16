@@ -1,7 +1,7 @@
 # Currency Exchange Matrix
 This app is a final project at the Coders Lab IT School.
 
-#X Technologies Used
+## Technologies Used
 - React (including external components)
 - CSS/SASS
 - Fetch API
