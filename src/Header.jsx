@@ -15,9 +15,11 @@ class Header extends React.Component {
     render() {
         return (
             <div className='date'>
-                <span>
+                <ul>
+                <li>
                 Today is: {this.state.date}
-                </span>
+                </li>
+                </ul>
             </div>
         );
     }

@@ -49,8 +49,6 @@ table {
 
 
 
-
-
 @font-face {
   font-family: 'comfortaaregular';
   src: url('./fonts/comfortaa-regular-webfont.woff2') format('woff2'),
@@ -73,15 +71,14 @@ table {
   line-height: 35px;
   position: relative;
   bottom: 400px;
-
 }
 
 
 td, th {
   width: 3.5rem;
-  height: 1.5rem;
   border: 1px solid rgb(245,245,245);
   text-align: center;
+  vertical-align: center;
   padding: 1rem;
   font-size: 16px;
 }
@@ -103,13 +100,14 @@ th {
   font-family: 'comfortaaregular';
   margin: 0 auto;
   width: 100vw;
+  height: 100%;
   max-height: 400px;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: nowrap;
   align-items: baseline;
   padding: 10px;
+  overflow: -moz-hidde-unscrollable;
 
 }
 
@@ -198,7 +196,6 @@ th {
   }
 
   .currenciesSelection {
-
     width: 100%;
     height: auto;
     background: rgba(245,245,245,0.6);
@@ -291,7 +288,7 @@ th {
       }
     }
     .sectionWithTable {
-      height: 44vh;
+      height: 50vh;
       padding-top: 15px;
       margin: 0 auto 10px auto;
       border-top: 3px solid #D3D3D3;
@@ -336,7 +333,7 @@ th {
 
   .currenciesSelection {
     width: 100%;
-    height: auto;
+    height: 100%;
     background: rgba(245,245,245,0.6);
     font-size: 10px;
     font-weight: bold;
@@ -347,11 +344,12 @@ th {
     display: flex;
     flex-wrap: wrap;
     align-content: space-around;
-
+    overflow: -moz-hidde-unscrollable;
     }
 
     span {
       height: auto;
+      box-sizing: border-box ;
     }
     span:hover{
       transform: scale(1.2);
